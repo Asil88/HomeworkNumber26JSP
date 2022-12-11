@@ -5,21 +5,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 
 @WebServlet("/registration")
-public class Registration extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Model model =Model.getInstance();
-        List<String> logins = model.list();
-        req.setAttribute("log",logins);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/listShow.jsp");
-        requestDispatcher.forward(req,resp);
-    }
+public class RegistrationServlet extends HttpServlet {
 
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+       /* Model model = Model.getInstance();
+        List<String> logins = model.list();
+        req.setAttribute("log", logins);
+        if (!logins.isEmpty()) {
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/listShow.jsp");
+            requestDispatcher.forward(req, resp);
+        }*/
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,4 +31,6 @@ public class Registration extends HttpServlet {
         Model model = Model.getInstance();
         model.add(user);
     }
+
+
 }
