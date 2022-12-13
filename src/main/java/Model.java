@@ -17,7 +17,12 @@ public class Model {
         model.add(user);
     }
 
+    public List<User> getModel() {
+        return model;
+    }
+
     public List<String>list(){
         return model.stream().map(User::getLogin).collect(Collectors.toList());
     }
+
 }
